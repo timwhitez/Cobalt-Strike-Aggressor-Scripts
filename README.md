@@ -15,5 +15,5 @@ session上右击，可关闭防火墙。允许填写的文件通过防火墙等
 # checkvm.cna
 查看是否为虚拟机
 
-# clearev.cns
+# clearev.cna
 关于windows日志的相关操作
