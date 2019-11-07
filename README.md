@@ -1,6 +1,6 @@
 # persistence.cna
 Cobalt Strike一键持久化维权；session上右击可添加trojan路径和powershell语句，可实现一键持久化（服务，计划任务，注册表）
-注：在powershell payload时，双引号（"）要使用反斜杠注释（\"）;
+注：在使用powershell payload时，双引号（"）要使用反斜杠注释（\"）;
 
 
 # FireWall.cna
@@ -16,4 +16,4 @@ session上右击，可关闭防火墙。允许填写的文件通过防火墙等
 查看是否为虚拟机
 
 # clearev.cna
-关于windows日志的相关操作
+清除系统日志
