@@ -1,3 +1,0 @@
-menu "RDPthief"{
-    include(script_resource("rdpthief/RdpThief.cna"));
-}
