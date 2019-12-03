@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="minirtl">
+      <UniqueIdentifier>{1caf2f34-af91-46be-aa2e-1893b0be628c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="testunits">
+      <UniqueIdentifier>{c4fc1dcf-e216-4458-a377-e7203d627128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\methods">
+      <UniqueIdentifier>{8adb74b4-1781-4684-84d2-61c8379b56f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\methods">
+      <UniqueIdentifier>{6a18d07e-0b0d-455a-b4c2-1379f5934479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ldr">
+      <UniqueIdentifier>{751f7002-5a6c-4d2e-9296-3b8132e640f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strcat.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strcmp.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strcmpi.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strcpy.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strend.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strlen.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strncmp.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strncmpi.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\_strncpy.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\strtoul.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="makecab.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\ultostr.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\_filename.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\cmdline.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\_strstri.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\ultohex.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test.c">
+      <Filter>testunits</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\methods.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\carberp.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\comet.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\enigma0x3.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\explife.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\gootkit.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\hybrids.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\pitou.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\sandworm.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\simda.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\ldr.c">
+      <Filter>ldr</Filter>
+    </ClCompile>
+    <ClCompile Include="windefend.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="methods\tyranid.c">
+      <Filter>Source Files\methods</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\minirtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\rtltypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="makecab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="consts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="manifest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\_filename.h">
+      <Filter>minirtl</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\test.h">
+      <Filter>testunits</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\methods.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\carberp.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\comet.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\enigma0x3.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\explife.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\gootkit.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\hybrids.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\pitou.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\sandworm.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\simda.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\sirefef.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\apphelp.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\ldr.h">
+      <Filter>ldr</Filter>
+    </ClInclude>
+    <ClInclude Include="windefend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="methods\tyranid.h">
+      <Filter>Header Files\methods</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="bin32res.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="bin64res.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="akagi.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
