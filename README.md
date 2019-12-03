@@ -1,11 +1,11 @@
-#Cobalt Strike加载Main.cna即可
+# Cobalt Strike加载Main.cna即可
 
-#功能：
+## 功能：
 Access->Elevate增加大部分可用exploit
 
 Attacks->Host CACTUSTORCH Payload可添加mshta等反弹方式(需要.net低版本支持)
 
-##session右键菜单：
+## session右键菜单：
 
 MS17-010加入对应payload
 
