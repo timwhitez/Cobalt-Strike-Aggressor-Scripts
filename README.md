@@ -1,9 +1,9 @@
 # Cobalt Strike加载Main.cna即可
 
- 重构版
- 重写了cna文件的调用
- 加入了部分功能
- 修改了持久化插件
+重构版
+重写了cna文件的调用
+加入了部分功能
+修改了持久化插件
 
 ## 功能：
 Access->Elevate增加大部分可用exploit
