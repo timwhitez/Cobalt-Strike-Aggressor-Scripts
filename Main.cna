@@ -1,0 +1,19 @@
+# Plugin Loader
+include(script_resource("modules/CACTUSTORCH.cna")); 
+include(script_resource("elevate/elevate.cna"));
+include(script_resource("modules/pwndog.cna"));
+
+popup beacon_bottom {
+    menu "TW-toolkit"{
+        
+        include(script_resource("modules/checkvm.cna"));
+        include(script_resource("modules/clearev.cna"));
+        include(script_resource("modules/FireWall.cna"));
+        include(script_resource("modules/persistence.cna"));
+        include(script_resource("modules/RDP.cna"));
+        include(script_resource("modules/Win2012mimikatz.cna"));  
+	include(script_resource("modules/cmd.cna"));  
+	
+    }
+}
+

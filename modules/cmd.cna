@@ -1,0 +1,20 @@
+
+     menu "CMD" {
+     item "Set Command" {
+        local('$bid');
+        foreach $bid ($1){
+            prompt_text("filePath", $filePath, {
+                $filePath = $1;
+                return $filePath;
+            });
+        }
+    }
+	
+    item "Execute Command"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "$filePath");
+
+        }
+        }
+        }
