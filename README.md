@@ -1,4 +1,6 @@
-# Update 20191204
+### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
+
+## Update 20191204
 
 增加持久化自启动方式
 
@@ -15,7 +17,7 @@ initial beacon自动设置10秒20%jitter sleep
 增加ps命令用不同颜色标记进程（例如，杀软会被标红）
 
 
-# Cobalt Strike加载Main.cna即可
+## Cobalt Strike加载Main.cna即可
 
 重构版
 
@@ -25,14 +27,14 @@ initial beacon自动设置10秒20%jitter sleep
 
 修改了持久化插件
 
-## 功能：
+### 功能：
 Access->Elevate增加大部分可用提权exploit
 
 Attacks->Host CACTUSTORCH Payload可添加mshta等反弹方式(需要.net低版本支持)
 
 ps命令标记不同颜色（比如标记出antivirus）
 
-## session右键菜单：
+### session右键菜单：
 
 MS17-010加入对应payload
 
