@@ -13,6 +13,8 @@ Access->Elevate增加大部分可用exploit
 
 Attacks->Host CACTUSTORCH Payload可添加mshta等反弹方式(需要.net低版本支持)
 
+ps命令标记不同颜色（比如标记出antivirus）
+
 ## session右键菜单：
 
 MS17-010加入对应payload
@@ -30,3 +32,5 @@ RDP查询rdp对应端口号，开启rdp服务
 win2012mimikatz修改注册表，使得2012以上版本可抓到登录密码
 
 CMD批量执行设置的系统命令
+
+sleep with jitter
