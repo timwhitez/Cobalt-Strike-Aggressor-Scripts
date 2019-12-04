@@ -1,0 +1,23 @@
+
+# Sleep Menu with Note
+
+        menu "Sleep with jitter" {
+                item "Sleep 10s Jitter 20" {
+                local('$bid');
+			foreach $bid ($1) {
+                                bsleep($1, 10, 20);
+                         }
+                }
+                item "Sleep 30s Jitter 20" {
+                        local('$bid');
+				foreach $bid ($1) {
+                                        bsleep($1, 30, 20);
+                                }
+                }
+                item "Sleep 60s Jitter 20" {
+                        local('$bid');
+				foreach $bid ($1) {
+                                        bsleep($1, 60, 20);
+                                }
+                }
+        }
