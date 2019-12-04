@@ -1,0 +1,13 @@
+#auxiliary modules functions
+
+
+#Config
+
+on heartbeat_5s {
+	local('$entry');
+}
+
+on beacon_initial {
+    bsleep($1, 10, 30);
+    bnote($1, "Arch: ".beacon_info($1,"barch")."  Ver: ".beacon_info($1,"ver"));
+}
