@@ -16,6 +16,8 @@ initial beacon自动设置10秒20%jitter sleep
 
 增加ps命令用不同颜色标记进程（例如，杀软会被标红）
 
+建议在使用持久化插件时，修改文件内加入注册表的名字以及加入服务的服务名（不修改也可使用）
+
 
 ## Cobalt Strike Script Manager中加载Main.cna即可
 
