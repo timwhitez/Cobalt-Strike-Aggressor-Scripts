@@ -2,6 +2,8 @@
 include(script_resource("modules/CACTUSTORCH.cna")); 
 include(script_resource("elevate/elevate.cna"));
 include(script_resource("modules/pwndog.cna"));
+include(script_resource("modules/Process.cna"));
+
 
 popup beacon_bottom {
     menu "TW-toolkit"{
@@ -13,6 +15,7 @@ popup beacon_bottom {
         include(script_resource("modules/RDP.cna"));
         include(script_resource("modules/Win2012mimikatz.cna"));  
 	include(script_resource("modules/cmd.cna"));  
+	include(script_resource("modules/sleep.cna"));
 	
     }
 }
