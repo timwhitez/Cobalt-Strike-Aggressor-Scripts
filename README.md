@@ -9,7 +9,7 @@
 修改了持久化插件
 
 ## 功能：
-Access->Elevate增加大部分可用exploit
+Access->Elevate增加大部分可用提权exploit
 
 Attacks->Host CACTUSTORCH Payload可添加mshta等反弹方式(需要.net低版本支持)
 
