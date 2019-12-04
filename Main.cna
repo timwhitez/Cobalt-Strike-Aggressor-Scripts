@@ -16,6 +16,8 @@ popup beacon_bottom {
         include(script_resource("modules/Win2012mimikatz.cna"));  
 	include(script_resource("modules/cmd.cna"));  
 	include(script_resource("modules/sleep.cna"));
+	include(script_resource("rdpthief/RdpThief.cna"));
+	include(script_resource("modules/inisleep.cna")); 
 	
     }
 }
