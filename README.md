@@ -1,6 +1,6 @@
 # Cobalt-Strike-Aggressor-Scripts
 
-## 注意！之前由于我的疏忽在路径方面出了些问题导致部分功能找不到文件，目前已修复。
+### 注意，之前由于疏忽在路径方面出了些问题导致部分功能找不到文件，目前已修复。
 
 ![image](https://avatars1.githubusercontent.com/u/36320909?s=400&u=427acf9d793ba03a5428f40ff17dad574347f065&v=4)
 
