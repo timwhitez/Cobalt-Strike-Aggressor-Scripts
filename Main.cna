@@ -3,6 +3,7 @@ include(script_resource("modules/CACTUSTORCH.cna"));
 include(script_resource("elevate/elevate.cna"));
 include(script_resource("modules/pwndog.cna"));
 include(script_resource("modules/Process.cna"));
+include(script_resource("modules/nbt.cna"));  
 
 
 popup beacon_bottom {
