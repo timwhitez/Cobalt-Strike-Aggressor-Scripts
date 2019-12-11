@@ -6,6 +6,11 @@
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
+## Update 20191211
+
+增加nbtscan一键上传，扫描，删除
+
+
 ## Update 20191204
 
 增加持久化自启动方式
