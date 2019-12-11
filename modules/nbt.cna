@@ -1,0 +1,29 @@
+sub nbtScan {
+		$arg = join(' ', @($3['ips']));
+		bshell($bid, "nbtscan.exe $arg");
+}
+popup beacon_bottom {
+	menu "NbtScan" {
+    	item "upload nbtscan"{
+        local('$bid');
+        foreach $bid ($1){
+            bupload($1, script_resource("modules/nbtscan/nbtscan.exe"));
+        }
+        }
+
+
+	item "nbtScan" {
+			$bid = $1['@'];
+			$dialog = dialog("nbtScan", %(ips => "",bid => $bid), &nbtScan);
+			drow_text($dialog, "ips", "RHOSTS:  ");
+            dbutton_action($dialog, "SCAN!!!");
+			dialog_show($dialog);
+        }
+    	item "del nbtscan"{
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "del /f /s /q nbtscan.exe");
+        }
+}
+}
+}
