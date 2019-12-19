@@ -5,6 +5,7 @@ include(script_resource("elevate/elevate.cna"));
 include(script_resource("modules/pwndog.cna"));
 include(script_resource("modules/Process.cna"));
 include(script_resource("modules/nbt.cna"));  
+include(script_resource("modules/CsharpTools.cna"));  
 
 
 popup beacon_bottom {
