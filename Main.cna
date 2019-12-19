@@ -1,5 +1,6 @@
 # Plugin Loader
-include(script_resource("modules/CACTUSTORCH.cna")); 
+include(script_resource("modules/mshtanet2.cna")); 
+include(script_resource("modules/mshtanet4.cna")); 
 include(script_resource("elevate/elevate.cna"));
 include(script_resource("modules/pwndog.cna"));
 include(script_resource("modules/Process.cna"));
