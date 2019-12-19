@@ -2,18 +2,35 @@
 #timwhite
      menu "RDP" {
 
-	item "Find RDP Port" {
-        local('$bid');
-        foreach $bid ($1){
-            bshell($1, "REG QUERY \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v PortNumber");
-        }
-	}
-	item "Enable RDP" {
+	item "FindRdpPort" {
+                local('$bid');
+                foreach $bid ($1){
+                    blog($1, "Check Rdp Open Port");
+                    bpowershell_import($bid, script_resource("./modules/powershell/RegRdpPort.ps1"));
+                    bpowerpick($bid,"RegRdpPort");
+                    #bpowershell($bid,"RegRdpPort");
+                    bshell($bid,"wevtutil cl \"Windows PowerShell\"");
+                }
+            }
+	item "Enable RDP win08/12" {
         local('$bid');
         foreach $bid ($1){
             bshell($1, "wmic /namespace:\\root\\cimv2\\terminalservices path win32_terminalservicesetting where (__CLASS != \"\") call setallowtsconnections 1");
 	    bshell($1, "wmic /namespace:\\root\\cimv2\\terminalservices path win32_tsgeneralsetting where (TerminalName ='RDP-Tcp') call setuserauthenticationrequired 1");
 	    bshell($1, "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f");
+        }
+	}
+	item "Enable RDP win7" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "wmic /namespace:\\root\\cimv2\\terminalservices path win32_terminalservicesetting where (__CLASS != \"\") call setallowtsconnections 1");
+	    bshell($1, "wmic /namespace:\\root\\cimv2\\terminalservices path win32_tsgeneralsetting where (TerminalName ='RDP-Tcp') call setuserauthenticationrequired 1");
+        }
+	}
+	item "Enable RDP win03/xp" {
+        local('$bid');
+        foreach $bid ($1){
+            bshell($1, "wmic path win32_terminalservicesetting where (__CLASS != \"\") call setallowtsconnections 1");
         }
 	}
 	item "Firewall Enable RDP" {
