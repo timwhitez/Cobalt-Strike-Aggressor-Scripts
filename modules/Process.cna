@@ -21,7 +21,7 @@ set BEACON_OUTPUT_PS {
 	local('$outps $temp $name $ppid $pid $arch $user $session');
 	$outps .= "\cC[*]\o Process List with process highlighting\n";
 	$outps .= "\cC[*]\o Current Running PID: \c8 Yellow ". $bd['pid'] ." \o \n";
-	$outps .= "\cC[*]\o Explorer/Winlogon: \c2 BLUE \o \n";
+	$outps .= "\cC[*]\o Explorer/Winlogon/spoolsv: \c2 BLUE \o \n";
 	$outps .= "\cC[*]\o Admin Tools: \cB LIGHT BLUE \o \n";
 	$outps .= "\cC[*]\o AV/EDR: \c4 RED \o \n\n";
 	$outps .= " PID   PPID  Name                                   Arch  Session     User\n";
@@ -41,7 +41,7 @@ set BEACON_OUTPUT_PS {
 		}
 
 		# highlight explorer , winlogon in BLUE 
-		else if ($name eq "explorer.exe" || $name eq "winlogon.exe") {
+		else if ($name eq "explorer.exe" || $name eq "winlogon.exe"|| $name eq "spoolsv.exe") {
 			push(@ps, %(pid => $pid, ppid => $ppid, pid_formatted => "$[5]pid", ppid_formatted => "$[5]ppid", color => "\c2", name => $name, arch => "$[5]arch", session => "$[11]session", user => $user));
 		} 
 
