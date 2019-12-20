@@ -6,6 +6,11 @@
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
+
+## Update 20191220
+
+fix bug，修复插件冲突。
+
 ## Update 20191219
 
 mshta方式反弹shell支持.net4.0方式，更好的适配高版本机器
