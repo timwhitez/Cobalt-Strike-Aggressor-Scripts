@@ -3,7 +3,7 @@
 # Editor: @TimWhite
 # setup our web delivery by pass AMSI
 
-sub setup_attack {
+sub setup_attacks{
 	local('%options $data $url $htaurl $htadata')
 	%options = $3;
 	if (%options["stageless"] eq "true"){
@@ -296,7 +296,7 @@ popup attacks {
 		%defaults["mshta"] = "true";
 
 		# create our dialog
-		$dialog = dialog("mshta DotNet4.0 available", %defaults, &setup_attack);
+		$dialog = dialog("mshta DotNet4.0 available", %defaults, &setup_attacks);
 		dialog_description($dialog, "A stageless version of the wmic one-liner Web Delivery attack.");
 		drow_text($dialog, "uri", "URI Path: ", 20);
 		drow_text($dialog, "htauri", "HTAURI Path: ", 20);
