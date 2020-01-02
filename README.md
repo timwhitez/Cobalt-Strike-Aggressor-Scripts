@@ -6,6 +6,9 @@
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
+## Update 20191231
+
+加入新的本地提权方式
 
 ## Update 20191220
 
