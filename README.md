@@ -1,5 +1,10 @@
 # Cobalt-Strike-Aggressor-Scripts
 
+
+# TimWhite-AS可能是目前用起来最顺手的Cobalt Strike插件集合之一!
+
+# 本脚本借鉴了github中许多大佬的思路以及源码，由于较为仓促未能贴出每个的url，再此表示感谢!
+
 ### 注意，之前由于疏忽在路径方面出了些问题导致部分功能找不到文件，目前已修复。
 
 ![image](https://avatars1.githubusercontent.com/u/36320909?s=400&u=427acf9d793ba03a5428f40ff17dad574347f065&v=4)
