@@ -11,6 +11,14 @@
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
+
+## Update 20200226
+
+加入navicat decrypt
+
+修改程序解决了winscp抓明文漏掉最后一位的问题
+
+
 ## Update 20191231
 
 加入新的本地提权方式
