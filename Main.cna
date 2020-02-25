@@ -6,7 +6,7 @@ include(script_resource("modules/pwndog.cna"));
 include(script_resource("modules/Process.cna"));
 include(script_resource("modules/nbt.cna"));  
 include(script_resource("modules/CsharpTools.cna"));  
-
+include(script_resource("modules/navi.cna")); 
 
 popup beacon_bottom {
     menu "TW-toolkit"{
