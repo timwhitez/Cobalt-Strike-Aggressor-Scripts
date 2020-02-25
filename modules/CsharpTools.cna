@@ -13,8 +13,8 @@ popup beacon_bottom {
         
 		item "DecryptPwd" {
 			$bid = $1['@'];
-			$dialog = dialog("SharpDecryptPwd", %(type => "-NavicatCrypto",bid => $bid), &SharpDecryptPwd);
-			drow_combobox($dialog, "type", "Type:", @("-NavicatCrypto", "-TeamViewer", "-FileZilla", "-WinSCP"));
+			$dialog = dialog("SharpDecryptPwd", %(type => "-WinSCP",bid => $bid), &SharpDecryptPwd);
+			drow_combobox($dialog, "type", "Type:", @("-TeamViewer", "-FileZilla", "-WinSCP"));
             dbutton_action($dialog, "Chong!!!");
 			dialog_show($dialog);
         }

@@ -1,0 +1,15 @@
+sub navicat_password{
+	
+		bexecute_assembly($bid, script_resource("modules/navicatpwd.exe"));
+	
+}
+popup beacon_bottom {
+    menu "NaviDecrypt" {
+	item "Navicat-Password"{
+		$bid = $1['@'];
+                  navicat_password($bid);
+            }
+    	}
+}
+
+
