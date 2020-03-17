@@ -3,7 +3,7 @@
 
 ## 可能是目前用起来最顺手的Cobalt Strike插件集合之一!
 
-## 本脚本借鉴了许多大佬的思路以及源码，由于较为仓促未能贴出每个的url，再此表示感谢!
+## 本脚本借鉴了许多大佬的思路以及源码，由于较为仓促未能贴出每个的url，在此表示感谢!
 
 ### 注意，之前由于疏忽在路径方面出了些问题导致部分功能找不到文件，目前已修复。
 
@@ -11,6 +11,9 @@
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
+## Update 20200317
+
+加入spawn as wnf
 
 ## Update 20200226
 
