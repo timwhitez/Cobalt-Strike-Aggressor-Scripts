@@ -7,8 +7,6 @@ include(script_resource("modules/Process.cna"));
 include(script_resource("modules/nbt.cna"));  
 include(script_resource("modules/CsharpTools.cna"));  
 include(script_resource("modules/navi.cna")); 
-include(script_resource("modules/spawn-wnf.cna")); 
-
 
 popup beacon_bottom {
     menu "TW-toolkit"{
@@ -22,8 +20,8 @@ popup beacon_bottom {
 	include(script_resource("modules/cmd.cna"));  
 	include(script_resource("modules/sleep.cna"));
 	include(script_resource("rdpthief/RdpThief.cna"));
-	include(script_resource("modules/inisleep.cna")); 
-	
+	include(script_resource("modules/inisleep.cna"));
+	include(script_resource("modules/collect.cna"));
     }
 }
 
