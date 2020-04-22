@@ -24,6 +24,7 @@ popup beacon_bottom {
 	include(script_resource("rdpthief/RdpThief.cna"));
 	include(script_resource("modules/inisleep.cna"));
 	include(script_resource("modules/collect.cna"));
+	include(script_resource("modules/chrome.cna")); 
     }
 }
 
