@@ -11,6 +11,10 @@
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
+## Update 20200422
+
+加入Info-Collect信息收集模块
+
 ## Update 20200317
 
 加入spawn as wnf
