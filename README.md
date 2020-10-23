@@ -101,3 +101,6 @@ win2012mimikatz修改注册表，使得2012以上版本可抓到登录密码
 CMD批量执行设置的系统命令
 
 sleep with jitter
+
+## 🚀Star Trend
+[![Stargazers over time](https://starchart.cc/timwhitez/Cobalt-Strike-Aggressor-Scripts.svg)](https://starchart.cc/timwhitez/Cobalt-Strike-Aggressor-Scripts)
