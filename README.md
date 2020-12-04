@@ -1,13 +1,10 @@
+![Cobalt-Strike-Aggressor-Scripts](https://socialify.git.ci/timwhitez/Cobalt-Strike-Aggressor-Scripts/image?description=1&font=Raleway&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F36320909&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Light)
+
 # Cobalt-Strike-Aggressor-Scripts
 
-
-## 可能是目前用起来最顺手的Cobalt Strike插件集合之一!
+### 可能是目前用起来最顺手的Cobalt Strike插件集合之一!
 
 ## 本脚本借鉴了许多大佬的思路以及源码，由于较为仓促未能贴出每个的url，在此表示感谢!
-
-### 注意，之前由于疏忽在路径方面出了些问题导致部分功能找不到文件，目前已修复。
-
-![image](https://avatars1.githubusercontent.com/u/36320909?s=400&u=427acf9d793ba03a5428f40ff17dad574347f065&v=4)
 
 ### Usage: https://github.com/timwhitez/Cobalt-Strike-Aggressor-Scripts/wiki
 
