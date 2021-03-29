@@ -2,7 +2,7 @@
 
 # Cobalt-Strike-Aggressor-Scripts
 
-### 可能是目前用起来最顺手的Cobalt Strike插件集合之一!
+### 长时间未更新，说声抱歉
 
 ## 本脚本借鉴了许多大佬的思路以及源码，由于较为仓促未能贴出每个的url，在此表示感谢!
 
