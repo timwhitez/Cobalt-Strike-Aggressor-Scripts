@@ -377,7 +377,7 @@ BOOL ucmMMCMethod(
         }
 
         //run mmc console
-        //because of mmc harcoded backdoor uac will autoelevate mmc with valid and trusted MS command.
+        //because of mmc hardcoded backdoor uac will autoelevate mmc with valid and trusted MS command.
         //yuubari identified multiple exploits in msc commands loading scheme.
         bResult = supRunProcess(MMC_EXE, lpMscFile);
 

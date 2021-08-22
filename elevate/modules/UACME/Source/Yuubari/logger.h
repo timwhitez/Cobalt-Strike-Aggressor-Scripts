@@ -8,7 +8,7 @@
 *
 *  DATE:        13 Feb 2017
 *
-*  Header file for the log file writter.
+*  Header file for the log file writer.
 *
 * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
 * ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED
