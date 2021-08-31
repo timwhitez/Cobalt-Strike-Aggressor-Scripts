@@ -3,14 +3,14 @@
 
 #Config
 
-on heartbeat_5s {
-	local('$entry');
-	foreach $entry (beacons()) {
-		if($entry['last'] > 80000 || (($entry['alive']) eq "false")){
-           beacon_remove($entry['id']);
-        }
-	}
-}
+#on heartbeat_5s {
+#	local('$entry');
+#	foreach $entry (beacons()) {
+#		if($entry['last'] > 80000 || (($entry['alive']) eq "false")){
+#           beacon_remove($entry['id']);
+#        }
+#	}
+#}
 
 on beacon_initial {
     bsleep($1, 10, 30);
